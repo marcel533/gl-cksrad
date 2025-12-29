@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tool Box Pro - Clean Edition</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+
+    <div id="auth-overlay">
+        <div class="auth-card">
+            <h2 class="cyber-title">SYSTEM LOCKED</h2>
+            <p>Sicherheitscode: <span id="n1"></span> + <span id="n2"></span></p>
+            <input type="number" id="captcha-input" autofocus placeholder="?">
+            <button onclick="verify()" class="btn-glow">LOGIN</button>
+        </div>
+    </div>
+
+    <div id="main-wrapper" class="locked">
+        <aside class="sidebar">
+            <div class="logo">TOOL<span class="green-text">BOX</span></div>
+            
+            <div class="input-area">
+                <label>DATEN-POOL (KOMMA)</label>
+                <textarea id="itemInput" onkeyup="syncData()">Jackpot, Joker, Niete, Bonus, Gold, Silber, Extra, Preis</textarea>
+            </div>
+            
+            <nav class="nav-links">
+                <button onclick="show('wheel-view')">🎡 Glücksrad</button>
+                <button onclick="show('bingo-view')">🎲 Bingo (4x4)</button>
+                <button onclick="show('time-view')">⏱️ Timer & Uhr</button>
+            </nav>
+
+            <div class="ad-section">
+                <a href="https://code.visualstudio.com/" target="_blank" class="ad-card">
+                    <div class="ad-icon vs-bg">VS</div>
+                    <div class="ad-info"><strong>VS Code</strong><span>Pro Editor</span></div>
+                </a>
+                <a href="https://www.twitch.tv/" target="_blank" class="ad-card">
+                    <div class="ad-icon tw-bg">TW</div>
+                    <div class="ad-info"><strong>Twitch</strong><span>Live Stream</span></div>
+                </a>
+            </div>
+        </aside>
+
+        <main class="content">
+            <div id="wheel-view" class="view" style="display:flex;">
+                <div class="wheel-container">
+                    <div class="pointer"></div>
+                    <canvas id="wheelCanvas" width="500" height="500"></canvas>
+                </div>
+                <button onclick="spinWheel()" class="btn-glow large">SPIN MATRIX</button>
+            </div>
+
+            <div id="bingo-view" class="view">
+                <div id="bingo-capture-area">
+                    <div class="bingo-box">
+                        <h1 class="bingo-title">BINGO</h1>
+                        <div id="bingo-grid" class="bingo-grid"></div>
+                    </div>
+                </div>
+                <div class="btn-row">
+                    <button onclick="generateBingo()" class="btn-glow">NEUE KARTE</button>
+                    <button onclick="downloadBingo()" class="btn-action blue">DOWNLOAD JPG</button>
+                </div>
+            </div>
+
+            <div id="draw-view" class="view">
+                <div class="tool-bar">
+                    <input type="color" id="pen-color" value="#00ff88">
+                    <input type="range" id="pen-size" min="1" max="50" value="10">
+                    <button onclick="clearCanvas()" class="btn-action red">LÖSCHEN</button>
+                </div>
+                <canvas id="paintCanvas"></canvas>
+            </div>
+
+            <div id="time-view" class="view">
+                <div class="timer-box">
+                    <div id="clock" class="cyber-display">00:00:00</div>
+                    <div id="timer" class="cyber-sub-display">00:00.00</div>
+                    <div class="controls">
+                        <button onclick="startT()" class="btn-action green">START</button>
+                        <button onclick="stopT()" class="btn-action red">STOP</button>
+                        <button onclick="resetT()" class="btn-action gray">RESET</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
