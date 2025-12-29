@@ -1,0 +1,64 @@
+:root {
+    --green: #00ff88; --blue: #00d2ff; --red: #ff4757; --dark: #0a0a0c;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+body { background: var(--dark); color: #fff; display: flex; height: 100vh; overflow: hidden; }
+
+/* Security Layer */
+#main-wrapper { display: flex; width: 100%; height: 100%; transition: filter 0.4s ease; }
+#main-wrapper.locked { pointer-events: none; filter: blur(15px); user-select: none; }
+
+#auth-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 9999; display: flex; align-items: center; justify-content: center; }
+.auth-card { background: #111; padding: 40px; border-radius: 20px; border: 2px solid var(--green); text-align: center; }
+.cyber-title { font-family: 'Orbitron'; color: var(--green); margin-bottom: 15px; }
+
+#auth-overlay input { 
+    background: #000; border: 1px solid #333; color: var(--green); 
+    padding: 10px; font-size: 2rem; width: 100px; text-align: center; border-radius: 10px; margin: 15px 0; 
+}
+
+/* Sidebar */
+.sidebar { width: 280px; background: #000; border-right: 1px solid #222; padding: 20px; display: flex; flex-direction: column; }
+.logo { font-family: 'Orbitron'; font-size: 1.8rem; margin-bottom: 25px; }
+.green-text { color: var(--green); }
+.input-area textarea { 
+    width: 100%; height: 80px; background: #111; border: 1px solid #333; 
+    border-radius: 8px; color: var(--green); padding: 10px; resize: none; margin-bottom: 20px; 
+}
+
+.nav-links button { 
+    width: 100%; background: #111; border: 1px solid #222; color: #ccc; 
+    padding: 12px; border-radius: 8px; margin-bottom: 8px; cursor: pointer; text-align: left; 
+}
+.nav-links button:hover { background: var(--green); color: #000; }
+
+/* Ads */
+.ad-section { margin-top: auto; }
+.ad-card { display: flex; align-items: center; gap: 10px; padding: 10px; background: #111; border: 1px solid #222; border-radius: 10px; text-decoration: none; margin-top: 8px; }
+.ad-icon { width: 35px; height: 35px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #fff; font-size: 11px; }
+.vs-bg { background: #007acc; } .tw-bg { background: #9146ff; }
+.ad-info strong { display: block; font-size: 13px; color: #fff; }
+
+/* Views */
+.content { flex: 1; padding: 30px; display: flex; justify-content: center; align-items: center; }
+.view { display: none; width: 100%; height: 100%; flex-direction: column; align-items: center; justify-content: center; }
+
+/* Bingo Style */
+.bingo-box { background: #fff; padding: 30px; border-radius: 15px; width: 380px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
+.bingo-title { color: var(--green); font-family: 'Orbitron'; text-align: center; font-size: 3rem; margin-bottom: 15px; }
+.bingo-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; background: #ddd; border: 4px solid #ddd; }
+.bingo-cell { background: #fff; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; color: #000; font-weight: bold; font-size: 0.8rem; text-align: center; }
+
+/* Utilities */
+#paintCanvas { background: #fff; border-radius: 15px; width: 100%; height: 500px; cursor: crosshair; }
+.tool-bar { background: #16161a; padding: 15px; border-radius: 12px; display: flex; gap: 10px; margin-bottom: 15px; align-items: center; }
+.btn-glow { background: var(--green); color: #000; border: none; padding: 14px 30px; border-radius: 50px; font-weight: 900; cursor: pointer; font-family: 'Orbitron'; }
+.btn-action { border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; color: #fff; font-weight: bold; }
+.blue { background: var(--blue); } .red { background: var(--red); } .green { background: var(--green); color: #000; } .gray { background: #444; }
+
+.cyber-display { font-family: 'Orbitron'; font-size: 5rem; color: var(--green); }
+.cyber-sub-display { font-family: 'Orbitron'; font-size: 3rem; color: var(--blue); margin: 20px 0; }
+.wheel-container { position: relative; margin-bottom: 20px; }
+.pointer { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); width: 25px; height: 35px; background: var(--red); clip-path: polygon(50% 100%, 0 0, 100% 0); z-index: 10; }
+#wheelCanvas { border-radius: 50%; border: 5px solid #222; transition: transform 4s cubic-bezier(0.1, 0, 0.2, 1); }
