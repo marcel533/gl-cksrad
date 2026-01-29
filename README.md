@@ -32,3 +32,4 @@ Warum TOOLBOX
 
 Diese Toolbox ist kein Spielzeug.
 Sie ist für Leute, die schnelle Tools brauchen – ohne App, ohne Cloud, ohne Abhängigkeiten.
+URL:https://marcel533.github.io/gl-cksrad/
